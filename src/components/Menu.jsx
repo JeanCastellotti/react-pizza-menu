@@ -46,17 +46,27 @@ const pizzas = [
 ]
 
 function Menu() {
+  // const pizzas = []
+
   return (
     <main className="flex flex-col items-center gap-16">
       <h2 className=" inline-block border-y-2 border-y-current py-4 text-[2.4rem] font-medium uppercase tracking-[3px]">
         Our Menu
       </h2>
-      {!!pizzas.length && (
-        <ul className="grid grid-cols-2 gap-[4.8rem]">
-          {pizzas.map((pizza) => (
-            <Pizza key={Math.random()} {...pizza} />
-          ))}
-        </ul>
+      {pizzas.length ? (
+        <>
+          <p className="w-[80%] text-center text-[1.5rem] leading-[1.6] ">
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="grid grid-cols-2 gap-[4.8rem]">
+            {pizzas.map((pizza) => (
+              <Pizza key={Math.random()} {...pizza} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We are still working on our menu. Please comme back later.</p>
       )}
     </main>
   )
